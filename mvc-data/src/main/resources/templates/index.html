@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br" layout:decorate="~{template.html}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://thymeleaf.org">
+
+<!--<xmlns:th> declarando a variáve-->
+<!--importa na página o thymeleaf e referenciada pela variável th -->
+<!--<layout:decorate="~{template.html}">-->
+<!--código omitido-->
+<head>
+    <!-- declarada no template
+         <meta charset="UTF-8"> -->
+    <title>Home</title>
+</head>
+<body>
+<div layout:fragment="conteudo">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2 th:text="${msg}"></h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <h1>Format ISO</h1>
+                <p th:text="${#dates.formatISO(standardDate)}"></p>
+                <p th:text="${#temporals.formatISO(localDateTime)}"></p>
+                <p th:text="${#temporals.formatISO(localDate)}"></p>
+                <p th:text="${#temporals.formatISO(timestamp)}"></p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <h1>Format manually</h1>
+                <p th:text="${#dates.format(standardDate, 'dd-MM-yyyy HH:mm')}"></p>
+                <p th:text="${#temporals.format(localDateTime, 'dd-MM-yyyy HH:mm')}"></p>
+                <p th:text="${#temporals.format(localDate, 'MM-yyyy')}"></p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <h1>Show only which day of a week</h1>
+                <p th:text="${#dates.day(standardDate)}"></p>
+                <p th:text="${#temporals.day(localDateTime)}"></p>
+                <p th:text="${#temporals.day(localDate)}"></p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <h1>Show the name of the week day</h1>
+                <p th:text="${#dates.dayOfWeekName(standardDate)}"></p>
+                <p th:text="${#temporals.dayOfWeekName(localDateTime)}"></p>
+                <p th:text="${#temporals.dayOfWeekName(localDate)}"></p>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col">
+                <h1>Show the second of the day</h1>
+                <p th:text="${#dates.second(standardDate)}"></p>
+                <p th:text="${#temporals.second(localDateTime)}"></p>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
+
+
